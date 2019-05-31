@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> The World News :: Article </title>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="article-edition.css" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <a href="/articles/edition"><button> New </button></a>
+
+            <label for="search-bar"> Search: </label>
+            <input type="search" placeholder="&#61442;" class="search-bar" id="search-bar"/>
+        </div>
+
+        <table id="articles" class="articles">
+
+        </table>
+
+        <script>
+            let articles = localStorage.getItem("articles");
+            articles = JSON.parse(articles);
+            const keys = Object.keys(articles[0]);
+            const table = document.getElementById("articles");
+
+            const tr = document.createElement("tr");
+            keys.forEach(function (key) {
+               const th = document.createElement("th");
+               const content = document.createTextNode(key);
+
+               th.appendChild(content);
+               tr.appendChild(th);
+            });
+            table.appendChild(tr);
+
+            articles.forEach(function (article) {
+                const row = table.insertRow(1);
+                for (let keyNb = 0 ; keyNb < keys.length ; ++keyNb) {
+                    const cell = row.insertCell(keyNb);
+                    cell.innerHTML = article[keys[keyNb]];
+                }
+            });
+        </script>
+    </body>
+</html>
