@@ -5,6 +5,36 @@
     <title> The World News :: Article Edition </title>
 </head>
 <body>
-    <p>edition</p>
+    <form method="post" action="/articles/edition" id="edition">
+        <h2> Author </h2>
+        <input type="text"/>
+
+        <h2> Date </h2>
+        <input type="date"/>
+
+        <h2> Section </h2>
+        <select>
+            <option> Select </option>
+        </select>
+
+        <h2> Status </h2>
+            <!-- In Edition -->
+            <input type="radio" name="edition" value="edition" checked>
+            <label> In edition </label>
+            <!-- Submitted -->
+            <input type="radio" name="submitted" value="submitted">
+            <label> Submitted </label>
+            <!-- Accepted -->
+            <input type="radio" name="accepted" value="accepted">
+            <label> Accepted </label>
+            <!-- Published-->
+            <input type="radio" name="published" value="published">
+            <label> Published </label>
+
+        <h2> Text </h2>
+        <textarea name="text" id="text" cols="100" rows="20"></textarea>
+    </form>
+
+    <button type="submit" form="edition"> Save</button>
 </body>
 </html>

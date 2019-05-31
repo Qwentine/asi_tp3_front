@@ -13,6 +13,10 @@ router.get("/edition", function (req, res) {
     res.sendFile(path.join(__dirname, "../view/article-edition.html"));
 });
 
+router.post("/edition", function (req, res) {
+    res.send(req.body);
+});
+
 router.get("/list", function (req, res) {
     const articles = [
         {
